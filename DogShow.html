@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Show Project!</title>
+    <link rel="stylesheet" href="DogShow.css">
+    <style type="text/css">
+        body {background-image: url(Background.jpg);}
+        body{text-align:center;}
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <h1>The Dog Show Listings!</h1>
+        <p id="intro">Welcome to the Dog Show Listings page! See below all entered candidates, this is open and you are welcome to include your own dog if you wish! Just click the 'Add' button to do so. Amendments and any entry removals can be done simply by clicking the relevant button! We wish all contestants the very best of luck! May the best dog lead...</p>
+    </div>
+    <h2>Contestants</h2>
+    <table id=dogshow class="center", border="10px">
+      <colgroup>
+      <col style="background-color: rgb(174, 221, 174)">
+      <col style="background-color: rgb(174, 221, 174)">
+      <col style="background-color: rgb(174, 221, 174)">
+      <col style="background-color: rgb(174, 221, 174)">
+      <col style="background-color: rgb(174, 221, 174)">
+      <col style="background-color: rgb(174, 221, 174)">
+      </colgroup>
+      <tr>
+        <th>ID</th>
+        <th>Breed</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Skill</th>
+      </tr>
+      <tr id="row1">
+        <td id="ID">1</td>
+        <td id="Breed">Labrador</td>
+        <td id="Name">Max</td>
+        <td id="Age">4</td>
+        <td id="Skill">Walking on hind legs</td>
+        <td>
+            <input type="Button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+            <input type="Button" id="delete_button1" value="Delete" class="delete" onclick="delete_row('1')">
+        </td>
+      </tr>
+      <tr id="row2">
+        <td id="ID">2</td>
+        <td id="Breed">Golden Retriever</td>
+        <td id="Name">Sam</td>
+        <td id="Age">5</td>
+        <td id="Skill">Jumping through hoop</td>
+        <td>
+            <input type="Button" id="edit_button2" value="Edit" class="edit" onclick="edit_row('2')">
+            <input type="Button" id="delete_button2" value="Delete" class="delete" onclick="delete_row('2')">
+        </td>
+      </tr>
+      <tr id="row3">
+        <td id="ID">3</td>
+        <td id="Breed">Yorkshire Terrier</td>
+        <td id="Name">Luna</td>
+        <td id="Age">3</td>
+        <td id="Skill">Dancing</td>
+        <td>
+            <input type="Button" id="edit_button3" value="Edit" class="edit" onclick="edit_row('3')">
+            <input type="Button" id="delete_button3" value="Delete" class="delete" onclick="delete_row('3')">
+        </td>
+      </tr>
+      <tr id="row4">
+        <td id="ID">4</td>
+        <td id="Breed">Border Collie</td>
+        <td id="Name">Bella</td>
+        <td id="Age">6</td>
+        <td id="Skill">Rolling over</td>
+        <td>
+            <input type="Button" id="edit_button4" value="Edit" class="edit" onclick="edit_row('4')">
+            <input type="Button" id="delete_button4" value="Delete" class="delete" onclick="delete_row('4')">
+        </td>
+      </tr>
+      <tr id="row5">
+        <td id="ID">5</td>
+        <td id="Breed">Poodle</td>
+        <td id="Name">Buddy</td>
+        <td id="Age">7</td>
+        <td id="Skill">Jump rope</td>
+        <td>
+            <input type="Button" id="edit_button5" value="Edit" class="edit" onclick="edit_row('5')">
+            <input type="Button" id="delete_button5" value="Delete" class="delete" onclick="delete_row('5')">
+        </td>
+      </tr>
+      <tr>
+          <td><input type="text" id="ID"></td>
+          <td><input type="text" id="Breed"></td>
+          <td><input type="text" id="Name"></td>
+          <td><input type="text" id="Age"></td>
+          <td><input type="text" id="Skill"></td>
+          <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+      </tr>
+    </table>
+
+    <script>
+        function addRow(dogshow){
+        var table = document.getElementById(dogshow);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+            var colCount = table.rows[1].cells.length;
+            for(var i=0; i<colCount; i++){
+                var newcell = row.insertCell(i);
+                newcell.innerHTML = row.insertCell(i);
+                
+                switch(newcell.childNodes[0].type){
+                    case "text":
+                        newcell.childNodes[0].value="";
+                        break;
+                    case "checkbox":
+                        newcell.childNodes[0].checked=false;
+                    case "select-one":
+                        newcell.childNodes[0].selectedIndex=0;
+                        break;
+                    case "button":
+                        newcell.childNodes[0].value="Delete";
+                        break;
+                }
+            }
+        }
+    </script>
+    
+</body>
+<footer>
+    DogShowContesants2022 all T's & C's apply. All Rights Reserved.
+    All queries can be directed to CallumsDogShowProject@doesntexist.com
+</footer>
+</html>
